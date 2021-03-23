@@ -1,6 +1,13 @@
+
 // 1. Define a function maxOfThree() that takes three numbers as arguments and returns the 
 // largest of them. 
-
+/**
+ * 
+ * @param {Number} num1 first number to compared
+ * @param {Number} num2 second number to compared
+ * @param {Number} num3 third number to be compared
+ * @return {Number} maximum number
+ */
 function maxOfThree(num1, num2, num3) {
     if (num1 > num2) {
         if (num1 > num3) {
@@ -18,7 +25,11 @@ function maxOfThree(num1, num2, num3) {
 // 2. Define a function sum() and a function multiply() that sums and multiplies (respectively) 
 // all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and 
 // multiply([1,2,3,4]) should return 24. 
-
+/**
+ * 
+ * @param {Number} array array of numbers to be summed up
+ * @return {Number} summation of the array elements
+ */
 function sum(array) {
     let sum = 0;
     for (let i = 0; i < array.length; i++) {
@@ -27,6 +38,11 @@ function sum(array) {
     return sum;
 }
 // console.log(sum([1, 2, 3, 4, 5]));
+/**
+ * 
+ * @param {Number} array array of numbers to multiplied
+ * @return {Number} result of multiplication of all elements 
+ */
 function multiply(array) {
     let result = 1;
     for (let i = 0; i < array.length; i++) {
