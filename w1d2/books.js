@@ -1,9 +1,9 @@
 "use strict";
 
 let library = [
-    { title: "The Road Ahead", author: "Bill Gates", libraryID: 1254 },
-    { title: "Walter Isaacson", author: "Steve Jobs", libraryID: 4264 },
-    { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", libraryID: 3245 }
+    { title: "The Road Ahead", author: "Bill Gates", ID: 1254 },
+    { title: "Walter Isaacson", author: "Steve Jobs", ID: 4264 },
+    { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", ID: 3245 }
 ];
 
 
@@ -35,17 +35,18 @@ document.getElementById("titleBtn").onclick = showTitles;
 function showTitles() {
 
     let title = ""
-    let sortResult = library.sort((a, b) => {
-        let title1 = a.title.toLowerCase(),
-            title2 = b.title.toLowerCase();
-        if (title1 > title2) {
-            return 1;
-        }
-        if (title1 < title2) {
-            return -1;
-        }
-        return 0;
-    })
+    
+    // let sortResult = library.sort((a, b) => {
+    //     let title1 = a.title.toLowerCase(),
+    //         title2 = b.title.toLowerCase();
+    //     if (title1 > title2) {
+    //         return 1;
+    //     }
+    //     if (title1 < title2) {
+    //         return -1;
+    //     }
+    //     return 0;
+    // })
     for (let i = 0; i < sortResult.length; i++) {
         title += i + 1 + ") " + (sortResult[i].title + "\n")
     }
@@ -76,16 +77,21 @@ document.getElementById("IDsBtn").onclick = showIDs;
 document.getElementById("IDsBtn").onclick = showIDs;
 // sorting ids of the books added
 function showIDs() {
-    let id = [];
-    let ids=0;
-    for (const book of library){
-        id.push(book.ID);
+    let id = "";
+    let sortResult = library.sort((a, b) => {
+        if(a.ID>b.ID){
+            return 1;
+        }else if(a.ID<b.ID){
+            return -1;
+        }else{
+            return 0;
+        }
+    });
+    
+    for(let i=0;i<sortResult.length;i++){
+        id+=i+1+")"+library[i].ID+"\n";
     }
-    id.sort();
-    for(let i=0;i<id.length;i++){
-        ids=id[i]+"\n";
-    }
-    document.getElementById("displayArea").value =ids ;
+    document.getElementById("displayArea").value =id ;
 }
 window.onload = showTitles;
 window.onload = addBooks;
