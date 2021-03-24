@@ -3,7 +3,7 @@
 let library = [
     { title: "The Road Ahead", author: "Bill Gates", ID: 1254 },
     { title: "Walter Isaacson", author: "Steve Jobs", ID: 4264 },
-    { title: "Mockingjay: The Final Book of The Hunger Games", author: "Suzanne Collins", ID: 3245 }
+    { title: "The Final Book of The Hunger Games", author: "Suzanne Collins", ID: 3245 }
 ];
 
 
@@ -16,7 +16,7 @@ function addBooks() {
     let bookAuthor = document.getElementById("author").value;
     let libId = document.getElementById("ID").value;
     if (bookTitle === "" || bookAuthor === "" || libId === "") {
-        alert("please put values before you add a book")
+        alert("Enter your book's title, author and id")
     }
     else {
         newBook.title = bookTitle;
@@ -26,7 +26,7 @@ function addBooks() {
         document.getElementById("title").value = "";
         document.getElementById("author").value = "";
         document.getElementById("ID").value = "";
-        alert("This book is added successfully")
+        alert("Your book is added to the library");
     }
 }
 
@@ -36,17 +36,16 @@ function showTitles() {
 
     let title = ""
     
-    // let sortResult = library.sort((a, b) => {
-    //     let title1 = a.title.toLowerCase(),
-    //         title2 = b.title.toLowerCase();
-    //     if (title1 > title2) {
-    //         return 1;
-    //     }
-    //     if (title1 < title2) {
-    //         return -1;
-    //     }
-    //     return 0;
-    // })
+    let sortResult = library.sort((a, b) => {
+        
+        if (a.title.toLowerCase() > b.title.toLowerCase()) {
+            return 1;
+        }
+        if (a.title.toLowerCase() < b.title.toLowerCase()) {
+            return -1;
+        }
+        return 0;
+    })
     for (let i = 0; i < sortResult.length; i++) {
         title += i + 1 + ") " + (sortResult[i].title + "\n")
     }
@@ -91,6 +90,7 @@ function showIDs() {
     for(let i=0;i<sortResult.length;i++){
         id+=i+1+")"+library[i].ID+"\n";
     }
+    
     document.getElementById("displayArea").value =id ;
 }
 window.onload = showTitles;
