@@ -1,4 +1,7 @@
 "use strict";
+
+const { addBooks } = require("./books");
+
 /* global assert findTitles findAuthors findIDs addBook */
 /*
 Write a JavaScript program that will accept title, author, and libraryID values from an HTML page and create new book objects for each entry.  
@@ -9,7 +12,8 @@ o	findAuthors, which will find all the authors in libraryBooks and return them i
 o	findIDs, which will find all the libraryIDs in libraryBooks and return them in an alphabetically ordered array.
 
 */
-
+const assert = require("assert");
+const test = require("w1d2/books.js");
 describe("library", function () {
 
     //This should be used as the "library database" for testing.
@@ -25,22 +29,22 @@ describe("library", function () {
 
 
     it("find titles", function () {
-        assert.deepEqual(findTitles(), titles);
+        assert.deepEqual(test.showTitles(), titles);
     });
 
     it("find authors", function () {
-        assert.deepStrictEqual(findAuthors(), authors);
+        assert.deepStrictEqual(showAuthors(), authors);
     });
 
     it("find ids", function () {
-        assert.deepStrictEqual(findIDs(), authors);
+        assert.deepStrictEqual(showIDs(), authors);
     });
 
     it("add book", function () {
         const newBook = {title: "My New Book", author: "Me Too", libraryID: 1144};
         const newIDs = ids.push(1144);
-        assert.deepStrictEqual(addBook(newBook), newBook);
-        assert.deepStrictEqual(findIDs(), newIDs);
+        assert.deepStrictEqual(addBooks(newBook), newBook);
+        assert.deepStrictEqual(showIDs(), newIDs);
     });
 
 });

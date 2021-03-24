@@ -1,7 +1,7 @@
 "use strict";
 
 let library = [
-    { title: "The Road Ahead", author: "Bill Gates", ID: 1254 },
+    { title: "Mockingjay: The Road Ahead", author: "Bill Gates", ID: 1254 },
     { title: "Walter Isaacson", author: "Steve Jobs", ID: 4264 },
     { title: "The Final Book of The Hunger Games", author: "Suzanne Collins", ID: 3245 }
 ];
@@ -21,7 +21,7 @@ function addBooks() {
     else {
         newBook.title = bookTitle;
         newBook.author = bookAuthor
-        newBook.id = Number(libId);
+        newBook.ID = Number(libId);
         library.push(newBook);
         document.getElementById("title").value = "";
         document.getElementById("author").value = "";
@@ -76,7 +76,7 @@ document.getElementById("IDsBtn").onclick = showIDs;
 document.getElementById("IDsBtn").onclick = showIDs;
 // sorting ids of the books added
 function showIDs() {
-    let id = "";
+    let ID = "";
     let sortResult = library.sort((a, b) => {
         if(a.ID>b.ID){
             return 1;
@@ -88,12 +88,17 @@ function showIDs() {
     });
     
     for(let i=0;i<sortResult.length;i++){
-        id+=i+1+")"+library[i].ID+"\n";
+        ID+=i+1+")"+sortResult[i].ID+"\n";
     }
     
-    document.getElementById("displayArea").value =id ;
+    document.getElementById("displayArea").value =ID ;
 }
 window.onload = showTitles;
 window.onload = addBooks;
 window.onload = showAuthors;
 window.onload = showIDs;
+
+
+module.exports={
+    addBooks,showAuthors,showTitles,showIDs
+}
