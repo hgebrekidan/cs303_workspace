@@ -3,10 +3,11 @@
 
 <head>
     <title>Book List</title>
+    <link href="style.css" type="text/css" rel="stylesheet"/>
     <script src="books.js"></script>
 </head>
 
-<body>
+<body id="body">
     <p>
         Book Title
         <br />
@@ -22,10 +23,10 @@
         <br />
         <input type="text" id="ID" size="80" />
     </p>
-    <input type="button" value="Add Books to Library" id="addBtn" onclick="addBooks();" />
-    <input type="button" value="Show titles" id="titlesBtn" onclick="showTitles();" />
-    <input type="button" value="Show authors" id="authorsBtn" onclick="showAuthors();" />
-    <input type="button" value="Show IDs" id="IDsBtn" onclick="showIDs();" />
+    <input type="button" id="add" value="Add Books to Library" id="addBtn" onclick="addBooks();" />
+    <input type="button" id="tit" value="Show titles" id="titlesBtn" onclick="showTitles();" />
+    <input type="button" id="aut" value="Show authors" id="authorsBtn" onclick="showAuthors();" />
+    <input type="button" id="id" value="Show IDs" id="IDsBtn" onclick="showIDs();" />
     <p>
         <textarea id="displayArea" rows="10" cols="80"></textarea>
     </p>
